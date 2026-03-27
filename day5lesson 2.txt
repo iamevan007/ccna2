@@ -1,0 +1,30 @@
+		8 4 2 1		8 4 2 1 	8 4 2 1		8 4 2 1
+
+fafa:baba:bebe:4800:0e00::
+
+!@Edge
+config t
+ipv6 unicast-routing
+int loopback 0
+ ipv6 enable
+ Ipv6 address autoconfig
+int loopback 1
+ no shutdown
+ ipv6 add cafe:cafe:cafe:cafe:0480::/73 EUI-64
+ do sh ipv6 int brief
+int loopback 2
+ ipv6 add cafe:cafe:cafe:cafe:0500::/73 EUI-64
+ do sh ipv6 int brief
+int loopback 3
+ ipv6 add cafe:cafe:cafe:cafe:0580::81/73
+ do sh ipv6 int brief
+end
+
+
+day5:
+task1: learn switch traffic:
+Switch: 
+-UNICAST: destination = normal
+-broadcast: ff:ff:ff:ff:ff:ff
+-multicast: 01-00-5e
+	
